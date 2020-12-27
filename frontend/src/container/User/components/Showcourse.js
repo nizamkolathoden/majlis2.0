@@ -15,6 +15,7 @@ const Showcourse = () => {
         method: "put",
         headers: {
           'Content-Type': 'application/json',
+          'authorization': localstorage.replace(/['"]+/g, '')
         },
         body: JSON.stringify({
           batch: user.batch,
@@ -49,10 +50,10 @@ const Showcourse = () => {
 
   return (
     <div>
-      <h1>Hello {user.name}</h1>
+    <h1>Hello {localstorage?user.name:''} </h1>
       {/* Hello {user.name} */}
       {
-        teacher.map(item => {
+       teacher && localstorage ? teacher.map(item => {
           return (
             <>
               <div className='card home-card'>
@@ -72,7 +73,7 @@ const Showcourse = () => {
               </div>
             </>
           )
-        })
+        }):''
       }
     </div>
   );

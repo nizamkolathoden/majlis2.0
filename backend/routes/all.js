@@ -8,7 +8,7 @@ const Teacher = require('../model/teacher')
 
 //@desc show teacher data to student
 //@route get /all/showteacher 
-router.put('/showteacher', (req, res) => {
+router.put('/showteacher', requireLogin,(req, res) => {
     const { batch, sem } = req.body;
     if (!sem) return res.status(402).json({ error: 'enter ' });
     if (!batch) return res.status(402).json({ error: 'enter bath' });
@@ -42,7 +42,7 @@ router.put('/rating/:id', requireLogin, (req, res) => {
 
 //@desc for shown teacher profile
 //@route get /all/teacherprofile
-router.get('/teacherprofile/:id', (req, res) => {
+router.get('/teacherprofile/:id',requireLogin, (req, res) => {
     const { batch, sem } = req.body
 
     Teacher.findOne({ "course._id": req.params.id }).then(data => res.json(data)).catch(e => console.log('error at show single subject', e))
@@ -52,9 +52,9 @@ router.get('/teacherprofile/:id', (req, res) => {
 //@desc for edit or delelte the rating of teacher
 //@route get /all/delete/rate
 
-router.put('/delete/rate', (req, res) => {
+router.put('/delete/rate',requireLogin, (req, res) => {
     Teacher.findOneAndUpdate({ "course._id": req.body.id }, {
-        $pull: { 'course.$.reviews': { _id: req.body.pullid } }
+        $pull: { 'course.$.reviews': {reivewedBy: req.body.pullid } }
     }, {
         new: true
     }
