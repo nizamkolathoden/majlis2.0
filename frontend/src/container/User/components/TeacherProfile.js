@@ -8,7 +8,7 @@ const Teacherprofile = () => {
     const [singleTeacher, setSingleTeacher] = useState([]);
     const [rating, setRating] = useState('');
     const [userId,setUserId] = useState('')
-    let [reviews, setReviews] = useState([])
+    let reviews =''
     let [rateUser, setRateUser] = useState([])
 console.log('userCj',user._id);
 
