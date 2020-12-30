@@ -18,27 +18,7 @@ router.put('/showteacher', requireLogin,(req, res) => {
 
 })
 
-//@desc for rating
-//@route put /all/rating
 
-router.put('/rating/:id', requireLogin, (req, res) => {
-    const { rat } = req.body
-    if (!rat) return res.json({ error: "plz rate your teacher" })
-    const review = {
-        rating: rat,
-        reivewedBy: req.user._id
-    }
-    //push data using a subject _id it's a subset of taecher schema
-    Teacher.findOneAndUpdate({ "course._id": req.params.id }, {
-        $push: { 'course.$.reviews': review }
-    }, {
-        new: true
-    }
-
-    ).populate("course.reviews.reivewedBy").then(data => res.json(data))
-
-
-})
 
 //@desc for shown teacher profile
 //@route get /all/teacherprofile
@@ -49,18 +29,6 @@ router.get('/teacherprofile/:id',requireLogin, (req, res) => {
 })
 
 
-//@desc for edit or delelte the rating of teacher
-//@route get /all/delete/rate
-
-router.put('/delete/rate',requireLogin, (req, res) => {
-    Teacher.findOneAndUpdate({ "course._id": req.body.id }, {
-        $pull: { 'course.$.reviews': {reivewedBy: req.body.pullid } }
-    }, {
-        new: true
-    }
-
-    ).then(data => res.json(data))
-})
 
 
 

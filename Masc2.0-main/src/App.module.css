@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* input::-webkit-outer-spin-button,
+* input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+* input[type=number] {
+  -moz-appearance: textfield;
+  scroll-behavior: smooth;
+}
+
+.App {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  font-family: "Poppins", sans-serif;
+}
+
+.Log {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0.9fr 1fr;
+      grid-template-rows: 0.9fr 1fr;
+}
+
+.Bg_container {
+  background: #ffffff;
+}
+
+.Bg_container .Bg {
+  height: 100%;
+  background: url("./Asset/pexels-jakub-novacek-924824-01 (1).jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 30px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Bg_container .Bg .main_head {
+  color: #f3f3f3;
+  font-size: 1.8em;
+  font-weight: 500;
+  padding-bottom: 0.9em;
+}
+
+.Bg_container .Bg .Bg_text {
+  width: 60%;
+  text-align: center;
+  color: #f3f3f3;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.Auth {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0.5fr auto 0.1fr;
+      grid-template-rows: 0.5fr auto 0.1fr;
+}
+
+.AuthHeader_1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.AuthHeader_1 .logo_header {
+  width: 162px;
+  height: 112px;
+}
+
+.AuthHeader_1 .join_text {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #393e46;
+}
+
+.AuthSection,
+.AuthForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.AuthSection .Input,
+.AuthForm .Input {
+  margin-bottom: 2em;
+  padding: 1.2em 4em;
+  border-radius: 0.6em;
+  border: 0.2px solid #ffffff;
+  -webkit-box-shadow: 0px 2px 10px rgba(160, 160, 160, 0.5);
+          box-shadow: 0px 2px 10px rgba(160, 160, 160, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-size: smaller;
+  color: #393e46;
+}
+
+.AuthSection .Submit,
+.AuthForm .Submit {
+  padding: 1.2em 3em;
+  border-radius: 0.6em;
+  outline: none;
+  border: none;
+  background: #393e46;
+  color: #f3f3f3;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.AuthSection .errorMessage,
+.AuthForm .errorMessage {
+  margin-bottom: 2em;
+  padding: 1.2em 4em;
+  border-radius: 0.6em;
+  border: 0.2px solid #ffffff;
+  -webkit-box-shadow: 0px 2px 10px rgba(160, 160, 160, 0.5);
+          box-shadow: 0px 2px 10px rgba(160, 160, 160, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-size: smaller;
+  border: 1px solid #ff5c5c;
+}
+
+.AuthSection .errorMessage::-webkit-input-placeholder,
+.AuthForm .errorMessage::-webkit-input-placeholder {
+  color: #ff5c5c;
+}
+
+.AuthSection .errorMessage:-ms-input-placeholder,
+.AuthForm .errorMessage:-ms-input-placeholder {
+  color: #ff5c5c;
+}
+
+.AuthSection .errorMessage::-ms-input-placeholder,
+.AuthForm .errorMessage::-ms-input-placeholder {
+  color: #ff5c5c;
+}
+
+.AuthSection .errorMessage::placeholder,
+.AuthForm .errorMessage::placeholder {
+  color: #ff5c5c;
+}
+
+.Footer_text {
+  text-align: center;
+  color: #393e46;
+  font-size: 0.9em;
+}
+
+@media only screen and (min-width: 1020px) {
+  .Log {
+    -ms-grid-rows: none;
+        grid-template-rows: none;
+    -ms-grid-columns: 0.7fr auto;
+        grid-template-columns: 0.7fr auto;
+  }
+  .Bg_container .Bg {
+    position: relative;
+    top: 5%;
+    bottom: 5%;
+    -webkit-transform: translate(-50% -50%);
+            transform: translate(-50% -50%);
+    height: 90%;
+    border-radius: 0 30px 30px 0;
+  }
+  .Bg_container .Bg .main_head {
+    font-size: 2.5em;
+  }
+  .Bg_container .Bg .Bg_text {
+    font-size: 1em;
+  }
+  .Auth {
+    -ms-grid-rows: 1fr 1fr 0.1fr;
+        grid-template-rows: 1fr 1fr 0.1fr;
+  }
+  .AuthHeader_1 {
+    padding-bottom: 4em;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .AuthHeader_1 .logo_header {
+    width: 310px;
+    height: 208px;
+  }
+  .AuthSection {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .Bg_container .Bg .main_head {
+    font-size: 3.5em;
+  }
+  .Bg_container .Bg .Bg_text {
+    font-size: 1.5em;
+  }
+}
+/*# sourceMappingURL=App.module.css.map */

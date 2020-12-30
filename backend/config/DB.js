@@ -5,7 +5,8 @@ const DB = () => {
         mongoose.connect(process.env.DB, 
             {
                     useNewUrlParser:true,
-                    useUnifiedTopology:true
+                    useUnifiedTopology:true,
+                    useFindAndModify:true
             },
             console.log('connected to DB'));
     } catch (e) {

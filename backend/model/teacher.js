@@ -1,15 +1,5 @@
 const mongoose = require('mongoose');
 const {ObjectId} = mongoose.Schema.Types
-const ratingSchema = new mongoose.Schema({
-    reivewedBy:{
-        type:ObjectId,
-        ref:'student'
-    },
-    rating:{
-        type:Number,
-        default:0
-    }
-})
 
 const teacherSchema = new mongoose.Schema({
     name:{
@@ -27,7 +17,24 @@ const teacherSchema = new mongoose.Schema({
            sem:{
                type:String
            },
-           reviews:[ratingSchema]
+         question:[{
+             question:{
+                type:ObjectId,
+                ref:'question'    
+             },
+             good:[{
+                 type:ObjectId,
+                 ref:'student'
+             }],
+             bad:[{
+                 type:ObjectId,
+                 ref:'student'
+             }],
+             poor:[{
+                 type:ObjectId,
+                 ref:'student'
+             }]
+         }]
         
     }],
     

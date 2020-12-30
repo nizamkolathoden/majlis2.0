@@ -8,6 +8,10 @@ const Student = require('../model/student');
 //teacher DB
 const Teacher = require('../model/teacher');
 
+//question DB
+ const Question = require('../model/question');
+const teacher = require('../model/teacher');
+
 //@desc for post student data to admin
 //@route post /admin/poststudent
 router.post('/poststudent', (req, res) => {
@@ -73,8 +77,48 @@ router.put('/post/subject', (req, res) => {
 })
 
 
+
+//@dsc adding question
+//@route post / /post/question
+
+router.post('/question',(req,res)=>{
+    
+        new Question ({
+            question:req.body.question,
+
+        }).save().then(data=>{
+
+            //its for testing not recommended
+
+            
+
+                            /* allTeacher.map(singleTeacher=>{
+                                console.log(singleTeacher) */
+                            Teacher.findOneAndUpdate({'course._id':"5feb5ecddfb34b248e716bfd"}, {
+                                $push: { 'course.$.question': data._id }
+                            },{
+                                new:true
+                            }
+                               ).exec((e,x)=>{
+                                    console.log(x)
+                                })
+                        // })
+                
+            res.json(data)
+        })
+})
+
+// /admin/update
+router.put("/update",requirelogin,(req,res)=>{
+        teacher.findOneAndUpdate({"course":"5feb5ecddfb34b248e716bfd"},{
+            $push: { 'question.$.good':req.user._id }
+        },{
+            new:true
+        }).exec((e,data)=>res.json(data))
+})
+
 router.get('/check', (req, res) => {
-        Teacher.find().then(data=>res.json(data))
+        Teacher.find().populate('course.question').then(data=>res.json(data))
 })
 
 
@@ -116,7 +160,6 @@ router.post('/addquestion', (req, res) => {
     })
 
 }) */
-
 
 
 

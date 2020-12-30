@@ -1,8 +1,10 @@
 {
   "name": "majilis2.0",
   "version": "1.0.0",
+
   "description": "",
   "main": "server.js",
+  
   "scripts": {
     "start": "cross-env NODE_ENV=production node server",
     "Dev": "cross-env NODE_ENV=devolpment nodemon server"
